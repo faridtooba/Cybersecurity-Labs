@@ -1,3 +1,10 @@
+# Domain 1 – General Security Concepts (SY0-701)
+
+This file contains my notes and portfolio-style explanations of Domain 1 concepts for the CompTIA Security+ SY0-701 exam.  
+I also connect them to real SOC analyst work where possible.  
+
+---
+
 ## 1.1 Security Controls
 Security controls are safeguards to protect information and systems.  
 
@@ -61,4 +68,28 @@ The three pillars of cybersecurity:
 - **Example:**  
   - Policy: All servers must use MFA.  
   - Current: Only 50% of servers use MFA.  
-  - Gap: Enforce MFA on remaining servers
+  - Gap: Enforce MFA on remaining servers.  
+
+**Home Lab Example:**  
+
+| Control Requirement | Current State | Gap / Issue | Action Needed |
+|------------------------------|--------------------------|------------------------|--------------------------|
+| Multi-factor authentication | Only password login on VM| Missing MFA | Implement MFA (e.g. Duo) |
+| Patch management | Manual updates monthly | No automation | Enable auto-updates |
+| Log retention | 7 days | SOC requires 30 days | Increase retention |
+
+**SOC Relevance:** Analysts often flag configuration weaknesses as part of incident reports, which helps management perform gap analysis.  
+
+---
+
+# ✅ Summary of Domain 1
+So far, I’ve studied and documented:  
+- Security Controls (types + functions)  
+- CIA Triad  
+- Non-repudiation  
+- AAA framework  
+- Gap Analysis  
+
+Next up: Threat Actors and Attack Vectors (Domain 1.4).  
+
+---
