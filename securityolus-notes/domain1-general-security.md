@@ -1,48 +1,64 @@
-# Domain 1 – General Security Concepts (SY0-701)
-
 ## 1.1 Security Controls
-Security controls are methods used to protect information and systems.
+Security controls are safeguards to protect information and systems.  
 
-- **Technical Controls** – implemented with technology  
+### Types of Controls
+- **Technical Controls** – technology-based  
   - Examples: Firewalls, IDS/IPS, encryption, authentication systems  
-- **Administrative Controls** – policies and procedures  
-  - Examples: Security training, background checks, change management policies  
+- **Administrative Controls** – policies & procedures  
+  - Examples: Security training, background checks, change management  
 - **Physical Controls** – protect physical assets  
   - Examples: Locks, fences, guards, CCTV  
 
-**Control Functions**  
-- **Preventive** – stop incidents before they happen (firewalls, MFA)  
-- **Detective** – identify incidents in progress (IDS, SIEM monitoring)  
-- **Corrective** – fix after an incident (patching, restoring backups)  
+### Control Functions
+- **Preventive** – stop incidents (MFA, firewalls)  
+- **Detective** – identify incidents (IDS, SIEM alerts)  
+- **Corrective** – fix after incidents (patches, backups)  
 - **Deterrent** – discourage attackers (warning banners, guards)  
-- **Compensating** – backup controls if the primary control fails  
+- **Compensating** – backup controls when primary fails  
+
+**SOC Relevance:** Analysts often investigate alerts triggered by detective controls and confirm whether preventive controls worked or failed.  
 
 ---
 
 ## 1.2 CIA Triad
-The three pillars of cybersecurity:
+The three pillars of cybersecurity:  
 
-- **Confidentiality** – data is only accessible by authorized people (encryption, VPN, access controls)  
-- **Integrity** – data cannot be modified without detection (hashing, digital signatures)  
-- **Availability** – data/systems are accessible when needed (redundancy, backups, load balancing)  
+- **Confidentiality** – restricts access to authorized users (encryption, VPNs).  
+- **Integrity** – ensures data isn’t altered without detection (hashing, digital signatures).  
+- **Availability** – ensures systems are accessible when needed (redundancy, backups).  
+
+**SOC Relevance:** Many alerts fall under CIA concepts, e.g., ransomware attacks threaten both **integrity** and **availability**.  
 
 ---
 
 ## Non-Repudiation
-Non-repudiation ensures that someone cannot deny an action they performed.
+- **Definition:** Proof that someone performed an action, and they cannot deny it later.  
+- **Achieved with:**  
+  - Digital signatures  
+  - Hashing + encryption  
+  - Audit logs  
 
-- Achieved with **digital signatures**, **hashing**, and **audit logs**.  
-- Example: A user digitally signs an email → they cannot deny sending it later.  
-- In a SOC, log analysis provides non-repudiation (proving an insider accessed files).  
+**Example:** A signed email or logged VPN connection provides evidence the action really happened.  
+
+**SOC Relevance:** Analysts rely on log integrity and timestamps to prove insider activity during investigations.  
 
 ---
 
 ## 1.3 AAA – Authentication, Authorization, and Accounting
-- **Authentication** – verifying identity (username+password, biometrics, MFA)  
-- **Authorization** – determining permissions (RBAC, ABAC, ACLs)  
-- **Accounting (Auditing/Logging)** – tracking user actions (logins, file access, privilege use)  
+- **Authentication:** Verifies identity (passwords, biometrics, tokens, MFA).  
+- **Authorization:** Determines what actions a user can perform (RBAC, ABAC).  
+- **Accounting (Auditing):** Tracks user actions (logins, file access).  
 
 **SOC Relevance:**  
-- Authentication → alerts on failed login attempts  
-- Authorization → escalation if users try to access restricted files  
-- Accounting → logs used in forensic investigations  
+- Authentication → alerts on failed logins.  
+- Authorization → escalation when users attempt to access restricted files.  
+- Accounting → log trails are critical in incident response and forensics.  
+
+---
+
+## Gap Analysis
+- **Definition:** Comparing current security posture vs desired state to find gaps.  
+- **Example:**  
+  - Policy: All servers must use MFA.  
+  - Current: Only 50% of servers use MFA.  
+  - Gap: Enforce MFA on remaining servers
